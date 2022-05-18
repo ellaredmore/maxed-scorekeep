@@ -1,0 +1,53 @@
+---
+title: "MAXED "ART" Companion"
+output: html_document
+---
+
+# # Background 
+
+The Athletes' Relationship with Training Scale (ART) is a self report scale that measures an athletes unhealthy relationship to training and exercise using a likert scale from never to always 
+
+Sources 
+https://onlinelibrary.wiley.com/doi/full/10.1002/eat.22960
+
+# # Scoresheet 
+To clean the data, the likert scale was shifted so never=0 and always=4
+
+# # Key Variables
+
+'art_mean' is the total average score of all the questions
+
+```{r, echo=FALSE}
+
+library(haven)
+library(cgwtools)
+library(readxl)
+library(scorekeeper)
+
+MAXED_raw <- load("C:/Users/Ella/Documents/MAXED_RA_raw.Rdata")
+
+ART_scoresheet <- read_excel("C:/Users/Ella/Documents/art_excel.xlsx")
+
+cleaned_data <- scorekeep(MAXED_RA_raw,art_excel)
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
