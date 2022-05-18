@@ -1,0 +1,53 @@
+---
+title: "MAXED_AED_companion"
+output: html_document
+---
+# # Background 
+
+The Analogue Exercise Decisions scale measures a persons decsions when asked to choose between exercise and money or exercise and food. 
+
+# # Scoresheet 
+
+The data was cleaned by renaming the variables and adjusting the scoring so that no=0 instead of no=2
+
+# # key variables 
+
+aed_mean is the average score of all questions
+aed_money_mean  average of money vs exercise 
+aed_snacks_mean  average of snacks vs exercise 
+
+```{r, echo=FALSE}
+library(haven)
+library(cgwtools)
+library(readxl)
+library(scorekeeper)
+
+
+
+
+MAXED_raw <- load("C:/Users/Ella/Documents/MAXED_RA_raw.Rdata")
+
+aed_scoresheet <- read_excel("C:/Users/Ella/Documents/aed_excel.xlsx")
+
+cleaned_data <- scorekeep(MAXED_RA_raw,aed_excel)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -1,0 +1,54 @@
+---
+title: "MAXED_BDI-II_companion"
+output: html_document
+---
+# # Background 
+
+The Beck Depression Inventory is a 21-item self report inventory that measure level of depression in adults and adolescence. It is scored using a likert scale from 0-3 with 0 being not at all and 3 being all of the time. Scores are derived by summing all scores.
+
+https://www.slu.edu/medicine/family-medicine/pdfs/beck-depression-inventory-ii.pdf
+
+https://www.sciencedirect.com/science/article/pii/S0005796798000874
+
+# # Scoresheet 
+
+The scoresheet was cleaned to rename each item on the scale 
+
+# # Key Variables 
+
+bdi_sum indicated the sum of all scores
+
+
+```{r, echo=FALSE}
+library(haven)
+library(cgwtools)
+library(readxl)
+library(scorekeeper)
+
+MAXED_raw <- load("C:/Users/Ella/Documents/MAXED_RA_raw.Rdata")
+
+BDI_scoresheet <- read_excel("C:/Users/Ella/Documents/bdi_excel.xlsx")
+
+cleaned_data <- scorekeep(MAXED_RA_raw,bdi_excel)
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
